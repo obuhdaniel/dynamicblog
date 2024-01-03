@@ -1,6 +1,6 @@
 
-
-import styles from '@/styles/Slug.module.css'
+import Head from 'next/head';
+import styles from '@/styles/Slug.module.css';
 import { GraphQLClient,gql } from 'graphql-request';
 
 import NavBar from '@/components/NavBar';
@@ -61,8 +61,13 @@ export async function getStaticProps({params}){
 
 export default function BlogPost({ post }){
   return (
-    
-
+    <>
+    <Head>
+    <title>{post.title}</title>
+        <meta name="description" content= {"Download free " + post.title + "Download more free series only on 235movies."}/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+    </Head>
     <main className={styles.blog}>
       <NavBar/>
       <div className={styles.wrapper}>
@@ -99,5 +104,6 @@ export default function BlogPost({ post }){
       </div>
       
     </main>
+    </>
   )
 }
