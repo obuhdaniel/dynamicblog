@@ -2,6 +2,7 @@
   "name": "235",
   "version": "0.1.0",
   "homepage": "http://obuhdaniel.github.io/dynamicblog",
+  "export": "next export",
   "private": true,
   "scripts": {
     "dev": "next dev",
