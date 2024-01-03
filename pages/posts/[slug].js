@@ -83,6 +83,7 @@ export default function BlogPost({ post }){
         
         ></div>
         <div
+        className={styles.trailer}
         dangerouslySetInnerHTML={{__html: post.trailer}}
 
         ></div>

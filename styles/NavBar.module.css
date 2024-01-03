@@ -1,11 +1,15 @@
 .hero{
-    color: white;
+    color: #14E0AE;
     background-color: inherit;
     
     padding-right: 20px;
     padding-left: 20px;
     border-bottom: 3px solid rgba(83, 83, 83, 0.281);
  
+}
+.hero:hover{
+    color: white;
+    transition: all .5s ease-in-out;
 }
 .nav{
     display: flex;
@@ -43,5 +47,21 @@
     }
     .list{
         margin-top: 10px;
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 360px) {
+    
+    
+    .nav{
+        justify-content: space-around;
+        flex-direction: column;
+
+    }
+    .list{
+        
+        font-size: 9.5px;
+        flex-direction: column;
     }
 }
