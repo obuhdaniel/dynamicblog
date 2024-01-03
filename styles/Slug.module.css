@@ -1,0 +1,36 @@
+.blog{
+    padding: auto;
+    box-sizing: border-box;
+}
+.wrapper{
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.head{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.cover{
+    max-height: 80vh;
+}
+.content{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.download{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 400px;
+    height: 30px;
+    background-color: rgb(0, 143, 226);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 25px;
+    font-weight: 900;
+}

@@ -1,0 +1,47 @@
+.hero{
+    color: white;
+    background-color: inherit;
+    
+    padding-right: 20px;
+    padding-left: 20px;
+    border-bottom: 3px solid rgba(83, 83, 83, 0.281);
+ 
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   align-items: center; 
+
+}
+
+
+.list{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style: none;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+}
+
+.list li:hover{
+    color: rgb(0, 92, 167);
+    text-decoration: underline;
+    
+}
+@media (max-width: 700px) {
+    
+    
+    .nav{
+        justify-content: space-around;
+        flex-direction: column;
+
+    }
+    .list{
+        margin-top: 10px;
+    }
+}
