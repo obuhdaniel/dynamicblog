@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import { GraphQLClient,gql } from 'graphql-request';
 import BlogCard from '@/components/BlogCard';
 import NavBar from '@/components/NavBar';
+import { revalidatePath } from 'next/cache';
 
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
 const QUERY =   gql `
@@ -29,6 +30,7 @@ export async function getStaticProps(){
     props: {
       posts,
     },
+    revalidate: 10
   }
 }
 
