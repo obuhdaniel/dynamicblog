@@ -5,6 +5,7 @@ import { GraphQLClient,gql } from 'graphql-request';
 import BlogCard from '@/components/BlogCard';
 import NavBar from '@/components/NavBar';
 import { revalidatePath } from 'next/cache';
+import Footer from '@/components/Footer';
 
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
 const QUERY =   gql `
@@ -38,7 +39,7 @@ export default function Home({posts}) {
   return (
     <>
       <Head>
-        <title>235 Movie</title>
+        <title>JoloFlix</title>
         <meta name="description" content="Download the latest Tv series and Movies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -46,6 +47,9 @@ export default function Home({posts}) {
       
       <main className={`${styles.main}`}>
 
+        <NavBar/>
+        <h1 className={styles.header}>Currently Rebuilding init</h1>
+        {/*
         <NavBar/>
         <h1 className={styles.header}>Recently updated</h1>
 
@@ -64,6 +68,10 @@ export default function Home({posts}) {
         ))}
         </div>
         
+        <Footer/>
+        
+        
+        */}
         
       </main>
     </>

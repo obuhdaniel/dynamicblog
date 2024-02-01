@@ -66,7 +66,7 @@ export default function BlogPost({ post }){
     <title>{post.title}</title>
         <meta name="description" content= {"Download free " + post.title + "Download more free series only on 235movies."}/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={post.coverPhoto.url} />
     </Head>
     <main className={styles.blog}>
       <NavBar/>
