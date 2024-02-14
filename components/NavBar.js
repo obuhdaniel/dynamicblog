@@ -7,7 +7,7 @@ export default function NavBar (){
         <div className={styles.hero}>
             <nav className={styles.nav}>
                     <Link href={'/'}>
-                    <h2 className={styles.logo}>Jelo Flix</h2>
+                    <h2 className={styles.logo}>9jaClix</h2>
                     </Link>
                     
                     <ul className={styles.list}>

@@ -5,12 +5,14 @@ import { GraphQLClient,gql } from 'graphql-request';
 import BlogCard from '@/components/BlogCard';
 import NavBar from '@/components/NavBar';
 import { revalidatePath } from 'next/cache';
+import SearchBar from '@/components/SearchBar';
+import SearchResults from '@/components/SearcResults';
 
 
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
 const QUERY =   gql `
   {
-    posts(orderBy: datePublished_DESC){
+    posts(orderBy: datePublished_DESC, first:5){
       id,
       title,
       datePublished,
@@ -39,7 +41,7 @@ export default function Home({posts}) {
   return (
     <>
       <Head>
-        <title>JoloFlix</title>
+        <title>9jaClix: Download Best movies and Series her</title>
         <meta name="description" content="Download the latest Tv series and Movies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -47,12 +49,16 @@ export default function Home({posts}) {
       
       <main className={`${styles.main}`}>
 
-        <NavBar/>
-        <h1 className={styles.header}>Currently Rebuilding init</h1>
-        {/*
-        <NavBar/>
-        <h1 className={styles.header}>Recently updated</h1>
 
+        <SearchBar/>
+ 
+        <NavBar/>
+
+        <div className={styles.latest}>
+        <h1 className={styles.header}>Latest</h1>
+        </div>
+ 
+        
         <div className={styles.band}>
         {posts.map((post)=> (
           <BlogCard 
@@ -67,12 +73,7 @@ export default function Home({posts}) {
           />
         ))}
         </div>
-        
-        <Footer/>
-        
-        
-        */}
-        
+       
       </main>
     </>
   )

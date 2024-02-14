@@ -1,4 +1,10 @@
 
+
+.latest{
+    display: flex;
+    align-items: center;
+}
+
 .header{
     width: 90%;
     max-width: 1240px;
@@ -22,7 +28,7 @@
     }
       
     @media (min-width: 60em) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
       }
 }
 
