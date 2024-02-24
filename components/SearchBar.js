@@ -1,28 +1,55 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function SearchBar() {
+function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
-  
   const [results, setResults] = useState([]);
+
   const handleSearch = async () => {
-    // Fetch search results from API (using fetch or a GraphQL client)
-    const response = await fetch('/api/search', {
-      method: 'POST',
-      body: JSON.stringify({ searchTerm }),
-    });
-    const results = await response.json();
-    // Display search results using Results component
+    try {
+      const response = await fetch('../api/search', {
+        method: 'POST',
+        body: JSON.stringify({ searchTerm }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(data);
+      setResults(data);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+      // You could display an error message to the user here
+    }
   };
 
+  useEffect(() => {
+    if (searchTerm) {
+      handleSearch();
+    } else {
+      setResults([]); // Clear results when search term is empty
+    }
+  }, [searchTerm]);
+
+  // Your logic to display results using Results component
+
   return (
-    <form onSubmit={handleSearch}>
+    <div>
       <input
         type="text"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search posts..."
+        onChange={(event) => setSearchTerm(event.target.value)}
+        placeholder="Search..."
       />
-      <button type="submit">Search</button>
-    </form>
+      <button onClick={handleSearch}>Search</button>
+      {results.length > 0 ? (
+        <Results results={results} />
+      ) : (
+        <p>No results found.</p>
+      )}
+    </div>
   );
 }
+
+export default SearchBar;

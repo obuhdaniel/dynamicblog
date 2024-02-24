@@ -6,6 +6,7 @@ import { GraphQLClient,gql } from 'graphql-request';
 import NavBar from '@/components/NavBar';
 import Link from 'next/link';
 
+
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
 const QUERY =   gql `
   query Post($slug: String!){
@@ -30,6 +31,24 @@ const QUERY =   gql `
     }
   }`;
 
+  const QUERY_RELATED =   gql `
+  {
+    posts(where: {id: "clqwicnl54xj20bk4swazw90t"}}){
+      id,
+      title,
+      datePublished,
+      slug,
+      content{html}
+      author{
+        name
+      }
+      coverPhoto{
+        url
+      }
+    }
+  }`
+
+
 
 const SLUGLIST = gql`
   {
@@ -50,16 +69,30 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}){
   const slug = params.slug;
-  const data = await graphcms.request(QUERY, {slug})
+  const data = await graphcms.request(QUERY, {slug});
+  
   const post = data.post;
   return{
     props: {
       post,
     },
+    revalidate: 10,
   }
 }
 
-export default function BlogPost({ post }){
+export async function getStaticProps2(){
+  const related = await graphcms.request(QUERY_RELATED);
+  console.log
+  return{
+    props: {
+      related,
+    },
+    revalidate: 10
+  }
+}
+
+
+export default function BlogPost({ post }, {related}){
   return (
     <>
     <Head>
@@ -101,6 +134,19 @@ export default function BlogPost({ post }){
           </button>
         </div>
 
+      </div>
+
+      <div>
+        <h2>
+          More Like this
+        </h2>
+       
+        </div>
+
+        <div>
+        <h2>
+          Recently Updated
+        </h2>
       </div>
       
     </main>

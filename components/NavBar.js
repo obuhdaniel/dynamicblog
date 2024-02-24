@@ -11,13 +11,13 @@ export default function NavBar (){
                     </Link>
                     
                     <ul className={styles.list}>
-                        <li> <Link href={'/'}> Home </Link> </li>
-                        <li><Link href={'/latest'}> Latest </Link> </li>
-                        <li>Movies</li>
-                        <li>Series</li>
+
+                        <li><Link href={'/movies'}> Movies </Link> </li>
+                        <li><Link href={'/series'}> Series </Link> </li>
                         <li>K-DRAMAs</li>
                         <li>Anime</li>
                     </ul>
+                    
                     
             </nav>
             

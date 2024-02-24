@@ -13,7 +13,7 @@ import SearchBar2 from '@/components/SearchBar2';
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
 const QUERY =   gql `
   {
-    posts(orderBy: datePublished_DESC){
+    posts(where: {author: {id: "clr38iwhp4pg40algyuv8ghmd"}}) {
       id,
       title,
       datePublished,
@@ -61,7 +61,7 @@ export default function Home({posts}) {
         <NavBar/>
 
         <div className={styles.latest}>
-        <h1 className={styles.header}>Latest</h1>
+        <h1 className={styles.header}>Latest Series</h1>
         </div>
  
         
@@ -80,7 +80,7 @@ export default function Home({posts}) {
         ))}
         </div>
 
-        <SearchBar/>  
+        
        
       </main>
     </>
