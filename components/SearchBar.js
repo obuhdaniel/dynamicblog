@@ -43,11 +43,7 @@ function SearchBar() {
         placeholder="Search..."
       />
       <button onClick={handleSearch}>Search</button>
-      {results.length > 0 ? (
-        <Results results={results} />
-      ) : (
-        <p>No results found.</p>
-      )}
+      
     </div>
   );
 }
