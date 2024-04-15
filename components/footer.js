@@ -2,7 +2,7 @@ import styles from '@/styles/Footer.module.css'
 import Link from 'next/link';
 
 import { FaTelegramPlane } from "react-icons/fa";
-import { FaTwitter, FaXTwitter } from "react-icons/fa6";
+import {  FaXTwitter } from "react-icons/fa6";
 
 export default function Footer(){
 
