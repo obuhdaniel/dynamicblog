@@ -27,7 +27,7 @@ const DMCA = () => {
           A statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law; and
         </li>
         <li>
-          A statement by you, made under penalty of perjury, that the information in the notification is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.
+          A statement by you, made under penalty of perjury, that the information in the notification is accurate and that you are the copyright owner or authorized to act on the copyright owners behalf.
         </li>
       </ul>
       <p>Our copyright agent for notice of claims of copyright infringement on our site is: DMCA Agent, Sabizone Movies.</p>
@@ -35,7 +35,7 @@ const DMCA = () => {
       <p>
         Please be aware that upon receipt of a proper DMCA notification, we will promptly remove or disable access to the material that is alleged to be infringing and will initiate a process to try to resolve the issue with the party who provided the allegedly infringing material.
       </p>
-      <p>**Thank you for your cooperation.**</p>
+      <p>Thank you for your cooperation.</p>
     <Footer/>
 
     </div>

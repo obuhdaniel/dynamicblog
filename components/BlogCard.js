@@ -9,7 +9,7 @@ export default function BlogPost({title,author, coverPhoto, datePublished, slug}
                 
                 <div className={styles.card}>
                     <div className={styles.imageContainer}>
-                            <Link href={"/posts/" + slug} ><img src={coverPhoto.url} alt="" srcset="" /></Link>
+                            <Link href={"/posts/" + slug} ><img src={coverPhoto.url} alt=""  /></Link>
                     </div>
                     <div className={styles.text}>
                     <Link href={"/posts/" + slug} ><h1 className={styles.title}> {title}</h1></Link>

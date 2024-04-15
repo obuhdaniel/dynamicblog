@@ -92,7 +92,7 @@ export async function getStaticProps2(){
 
 
 export default function BlogPost({ post }, {related}){
-  console.log(post)
+  
   return (
     <>
     <Head>

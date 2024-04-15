@@ -101,11 +101,12 @@ export default function Home({ posts }) {
           </div>
         ) : (
           searchTerm && ( // Display message if no results found
-            <p>No results found for "{searchTerm}".</p>
+            <p>No results found</p>
           )
         )}
 
-        <Footer/>
+      <Footer/>
+        
       </main>
     </>
   );
