@@ -8,6 +8,7 @@ import { revalidatePath } from 'next/cache';
 import SearchBar from '@/components/SearchBar';
 import SearchResults from '@/components/SearcResults';
 import SearchBar2 from '@/components/SearchBar2';
+import Footer from '@/components/footer';
 
 
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
@@ -47,7 +48,7 @@ export default function Home({posts}) {
   return (
     <>
       <Head>
-        <title>9jaClix: Download Best movies and Series her</title>
+        <title>SABIzone: Download Best movies and Series her</title>
         <meta name="description" content="Download the latest Tv series and Movies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -81,6 +82,8 @@ export default function Home({posts}) {
         </div>
 
         <SearchBar/>  
+
+        <Footer/>
        
       </main>
     </>

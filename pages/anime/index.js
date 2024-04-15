@@ -71,7 +71,7 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>SABIzone: Download Best movies and Series Here</title>
+        <title>9jaClix: Download Best movies and Series Here</title>
         <meta name="description" content="Download the latest Tv series and Movies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -104,8 +104,8 @@ export default function Home({ posts }) {
             <p>No results found for "{searchTerm}".</p>
           )
         )}
-
         <Footer/>
+
       </main>
     </>
   );

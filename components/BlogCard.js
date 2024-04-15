@@ -6,12 +6,13 @@ export default function BlogPost({title,author, coverPhoto, datePublished, slug}
         
         
             <div className={styles.item}>
+                
                 <div className={styles.card}>
                     <div className={styles.imageContainer}>
                             <Link href={"/posts/" + slug} ><img src={coverPhoto.url} alt="" srcset="" /></Link>
                     </div>
                     <div className={styles.text}>
-                        <Link href={"/posts/" + slug} ><h1 className={styles.title}> {title}</h1></Link>   
+                    <Link href={"/posts/" + slug} ><h1 className={styles.title}> {title}</h1></Link>
                         
                         <h3 className={styles.date}>{datePublished}</h3>
 
@@ -20,7 +21,7 @@ export default function BlogPost({title,author, coverPhoto, datePublished, slug}
                         
                     </div>
                 </div>
-            </div>
+            </div> 
 
             
      

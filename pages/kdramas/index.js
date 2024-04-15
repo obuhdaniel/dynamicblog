@@ -48,7 +48,7 @@ export default function Home({posts}) {
   return (
     <>
       <Head>
-        <title>SABIzone Download Best movies and Series her</title>
+        <title>9jaClix: Download Best movies and Series her</title>
         <meta name="description" content="Download the latest Tv series and Movies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -62,7 +62,7 @@ export default function Home({posts}) {
         <NavBar/>
 
         <div className={styles.latest}>
-        <h1 className={styles.header}>Latest Series</h1>
+        <h1 className={styles.header}>K dramas is Comming Soon here</h1>
         </div>
  
         
@@ -81,8 +81,9 @@ export default function Home({posts}) {
         ))}
         </div>
 
-        <Footer/>
-       
+          
+
+       <Footer/>
       </main>
     </>
   )

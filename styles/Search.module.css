@@ -1,0 +1,46 @@
+
+.div{
+    width: 100%;
+    
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    color: black;
+    gap: 0.5rem;
+    background-color: white;
+    justify-content: center;
+}
+
+.input{
+    background-color: black;
+    outline: none;
+    width: 75%;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.form{
+    display: block;
+}
+
+.btn{
+    border-radius: 5rem;
+    background-color: black;
+    color: white;
+    padding: .5rem;
+    font-size: 1rem;
+    box-shadow: none;
+    
+
+}
+
+.btn:hover{
+    background-color: aqua;
+    border: none;
+    transition: all ease-in .5s;
+    color: black;
+}

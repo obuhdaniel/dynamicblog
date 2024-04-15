@@ -5,6 +5,7 @@ import { GraphQLClient,gql } from 'graphql-request';
 
 import NavBar from '@/components/NavBar';
 import Link from 'next/link';
+import Footer from '@/components/footer';
 
 
 const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
@@ -27,23 +28,19 @@ const QUERY =   gql `
       coverPhoto{
         url
       }
-      
+      genres{
+        genre
+      }
     }
   }`;
 
   const QUERY_RELATED =   gql `
   {
-    posts(where: {id: "clqwicnl54xj20bk4swazw90t"}}){
-      id,
-      title,
-      datePublished,
-      slug,
-      content{html}
-      author{
-        name
-      }
-      coverPhoto{
-        url
+    posts(where: {genres_every: {genre: "supes"}}) {
+      id
+      title
+      genres{
+        genre
       }
     }
   }`
@@ -70,12 +67,14 @@ export async function getStaticPaths(){
 export async function getStaticProps({params}){
   const slug = params.slug;
   const data = await graphcms.request(QUERY, {slug});
+  const related = await graphcms.request(QUERY_RELATED);
   
   const post = data.post;
   return{
     props: {
       post,
     },
+
     revalidate: 10,
   }
 }
@@ -93,11 +92,12 @@ export async function getStaticProps2(){
 
 
 export default function BlogPost({ post }, {related}){
+  console.log(post)
   return (
     <>
     <Head>
     <title>{post.title}</title>
-        <meta name="description" content= {"Download free " + post.title + "Download more free series only on 235movies."}/>
+        <meta name="description" content= {"Download " + post.title + "Download more free series only on SABIZONW."}/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={post.coverPhoto.url} />
     </Head>
@@ -109,6 +109,7 @@ export default function BlogPost({ post }, {related}){
         <div className={styles.title}>
           <div className={styles.authText}>
             <h6> Category: {post.author.name}</h6>
+            <h6> Tags: {post.genres.genre}</h6>
             <h6 className={styles.date}>Updated: {post.datePublished}</h6>
           </div>
         </div>
@@ -148,6 +149,8 @@ export default function BlogPost({ post }, {related}){
           Recently Updated
         </h2>
       </div>
+
+      <Footer />
       
     </main>
     </>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from '@/styles/Search.module.css'
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -35,12 +36,13 @@ function SearchBar() {
   // Your logic to display results using Results component
 
   return (
-    <div>
+    <div className={styles.div}>
       <input
         type="text"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
         placeholder="Search..."
+        
       />
       <button onClick={handleSearch}>Search</button>
       
