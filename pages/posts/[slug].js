@@ -1,98 +1,71 @@
-
 import Head from 'next/head';
 import styles from '@/styles/Slug.module.css';
-import { GraphQLClient,gql } from 'graphql-request';
+import { GraphQLClient, gql } from 'graphql-request';
 
 import NavBar from '@/components/NavBar';
 import Link from 'next/link';
 import Footer from '@/components/footer';
 
+const graphcms = new GraphQLClient(
+  "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master"
+);
 
-const graphcms =new GraphQLClient("https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clqnoifflon4t01uk22m41omv/master");
-const QUERY =   gql `
-  query Post($slug: String!){
-    post (where: {slug: $slug}){
-      id,
-      title,
-      datePublished,
-      slug,
-      trailer,
-      download,
-      content{html}
-      author{
-        name
-      }
-      content{
-        html
-      }
-      coverPhoto{
-        url
-      }
-      genres{
-        genre
-      }
-    }
-  }`;
-
-  const QUERY_RELATED =   gql `
-  {
-    posts(where: {genres_every: {genre: "supes"}}) {
+const QUERY = gql`
+  query Post($slug: String!) {
+    post(where: { slug: $slug }) {
       id
       title
-      genres{
+      datePublished
+      slug
+      trailer
+      download
+      content {
+        html
+      }
+      author {
+        name
+      }
+      coverPhoto {
+        url
+      }
+      genres {
         genre
       }
-    }
-  }`
-
-
-
-const SLUGLIST = gql`
-  {
-    posts {
-      slug
     }
   }
 `;
 
-export async function getStaticPaths(){
-  const {posts} = await graphcms.request(SLUGLIST);
-  return{
-    paths: posts.map((post) => ({params: {slug: post.slug}})),
-    fallback: false,
+const QUERY_RELATED = gql`
+  {
+    posts(where: { genres_every: { genre: "supes" } }) {
+      id
+      title
+      genres {
+        genre
+      }
+    }
+  }
+`;
 
-  };
-}
-
-export async function getStaticProps({params}){
+export async function getServerSideProps({ params }) {
   const slug = params.slug;
-  const data = await graphcms.request(QUERY, {slug});
+  const data = await graphcms.request(QUERY, { slug });
   const related = await graphcms.request(QUERY_RELATED);
-  
+
   const post = data.post;
-  return{
+
+  return {
     props: {
       post,
-    },
-
-    revalidate: 10,
-  }
-}
-
-export async function getStaticProps2(){
-  const related = await graphcms.request(QUERY_RELATED);
-  console.log
-  return{
-    props: {
       related,
     },
-    revalidate: 10
-  }
+   // Revalidate every 60 seconds (adjust as needed)
+  };
 }
 
 
 export default function BlogPost({ post }, {related}){
-  
+  console.log(post)
   return (
     <>
     <Head>
@@ -139,16 +112,12 @@ export default function BlogPost({ post }, {related}){
 
       <div>
         <h2>
-          More Like this
+          More Like this: comming soon
         </h2>
        
         </div>
 
-        <div>
-        <h2>
-          Recently Updated
-        </h2>
-      </div>
+        
 
       <Footer />
       

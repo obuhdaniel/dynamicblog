@@ -66,21 +66,7 @@ export default function Home({posts}) {
         </div>
  
         
-        <div className={styles.band}>
-        {posts.map((post)=> (
-          <BlogCard 
-            title= {post.title}
-            author= {post.author}
-            coverPhoto = {post.coverPhoto}
-            key = {post.id}
-            datePublished = {post.datePublished}
-            slug = {post.slug}
-          
-          
-          />
-        ))}
-        </div>
-
+        
           
 
        <Footer/>

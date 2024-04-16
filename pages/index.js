@@ -14,7 +14,7 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
   {
-    posts(orderBy: datePublished_DESC) {
+    posts(orderBy: datePublished_DESC, first: 30) {
       id
       title
       datePublished
@@ -85,6 +85,7 @@ export default function Home({ posts }) {
         <div className={styles.latest}>
           <h1 className={styles.header}>Latest</h1>
         </div>
+      
 
         {filteredPosts.length > 0 ? ( // Display filtered posts based on search term
           <div className={styles.band}>
