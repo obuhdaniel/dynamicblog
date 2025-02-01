@@ -39,7 +39,7 @@ export async function getStaticProps() {
     props: {
       posts,
     },
-    revalidate: 10, // Revalidate data every 10 seconds
+    revalidate: 10,
   };
 }
 
@@ -76,39 +76,31 @@ export default function Home({ posts }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <main className={styles.main}>
+      <NavBar />
 
-      <main className={`${styles.main}`}>
-        <NavBar />
-
-        <SearchBar term={searchTerm} onChange={handleChange} onSearch={handleSearch} />
-
-        <div className={styles.latest}>
-          <h1 className={styles.header}>Latest</h1>
-        </div>
+      <div className={styles.goodbyeContainer}>
+        <h1 className={styles.header}>Goodbye, and Thank You for Watching with Us</h1>
+        <p className={styles.message}>
+          Dear SZONE Community,
+        </p>
+        <p className={styles.message}>
+          With a heavy heart, we announce that SZONE is closing its doors. This journey has been an incredible one—filled with stories that made us laugh, cry, and think deeply. Every movie, every discussion, and every moment shared on this platform was made special because of <strong>you</strong>—our dedicated viewers.
+        </p>
+        <p className={styles.message}>
+          From the latest releases to hidden gems, SZONE was more than just a movie-viewing platform; it was a space where film lovers connected, explored, and found comfort in storytelling. We are immensely grateful for your support, your passion, and the time you spent with us.
+        </p>
+        <p className={styles.message}>
+          Though this chapter ends, the love for cinema never fades. Keep discovering, keep watching, and keep sharing stories that inspire you.
+        </p>
+        <p className={styles.message}>
+          Thank you for being part of SZONE. This isn't just a goodbye—it's a heartfelt <strong>thank you</strong>.
+        </p>
+        <p className={styles.signature}>With gratitude, <br/> <strong>The SZONE Team</strong></p>
+      </div>
       
-
-        {filteredPosts.length > 0 ? ( // Display filtered posts based on search term
-          <div className={styles.band}>
-            {filteredPosts.map((post) => (
-              <BlogCard
-                key={post.id}
-                title={post.title}
-                author={post.author}
-                coverPhoto={post.coverPhoto}
-                datePublished={post.datePublished}
-                slug={post.slug}
-              />
-            ))}
-          </div>
-        ) : (
-          searchTerm && ( // Display message if no results found
-            <p>No results found</p>
-          )
-        )}
-
-      <Footer/>
-        
-      </main>
+      <Footer />
+    </main>
     </>
   );
 }

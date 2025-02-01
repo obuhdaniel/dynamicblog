@@ -13,6 +13,44 @@
     padding: 20px 0;
 }
 
+
+.main {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #121212;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .goodbyeContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffcc00;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .signature {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+
+
 .band{
     width: 90%;
     max-width: 1240px;
