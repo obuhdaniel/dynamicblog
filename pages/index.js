@@ -94,7 +94,7 @@ export default function Home({ posts }) {
           Though this chapter ends, the love for cinema never fades. Keep discovering, keep watching, and keep sharing stories that inspire you.
         </p>
         <p className={styles.message}>
-          Thank you for being part of SZONE. This isn't just a goodbye—it's a heartfelt <strong>thank you</strong>.
+          Thank you for being part of SZONE. This isn ot just a goodbye—it is a heartfelt <strong>thank you</strong>.
         </p>
         <p className={styles.signature}>With gratitude, <br/> <strong>The SZONE Team</strong></p>
       </div>
